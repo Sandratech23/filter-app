@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task-app-with-filter</title>
+    <link rel="stylesheet" href="./task-app-with-filter.css" />
+
+  </head>
+  <body>
+   <div class="container">
+      <!--  search input and add task area -->
+      
+       <h2>Hello, Sandra </h2>  
+       <p> Here are the list of your task for today </p>
+
+      
+      <div class="head-content">
+        <div class="search-bar">
+          <div>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="input" type="text" id="textInput" placeholder="Filter by description.." />
+          </div>
+
+          <div class="cancel">
+            <button id="cancel"><i class="fa-solid fa-xmark"></i></button>
+          </div> 
+        
+          
+
+        </div>
+
+        <div class="add-items">
+          <button id="addTaskBtn">+ Add Task</button>
+        </div>
+      </div>
+
+      <div class="modal-overlay close" id="modal">
+        <!-- modal -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="modalHead">Add Task</h2>
+            <button id="closeButton" class="close-button">&#x2715;</button>
+          </div>
+          <div>
+            <h3 class="selection">Select Status</h3>
+            <button class="btn">All</button>
+            <button class="btn btn-color" id="butn">Done</button>
+            <button class="btn btn-color" id="butn">In Progress</button>
+            <button class="btn btn-color" id="butn">Todo</button>
+            <p class="selectStatus">Please select status</p>
+            <h3 class="selection">Select Date</h3>
+            <input type="date" class="inputBox" id="dateBox">
+            <h3 class="selection">Select Priority</h3>
+            <button class="btn btn-color" id="butn">High</button>
+            <button class="btn btn-color" id="butn">Low</button>
+            <button class="btn btn-color" id="butn">Medium</button>
+            <p class="selectPriority">Please select priority</p>
+            <h3 class="selection">Describe your Task</h3>
+            <input type="text" placeholder="Description" class="inputBox" id="descriptionBox">
+            <p class="selectDescription">Please write some description</p>
+          </div>
+          <div class="btn-box"><button id="editButton">Add Task </button></div>
+        </div>
+      </div> 
+
+
+      <main id="wrapper">
+
+        <!-- filtered by status -->
+        <section class="body-content">
+          <p class="filtered-options">Filtered by status</p>
+
+          <div class="filter-buttons">
+            <div class="buttons" id="activeBtn">
+              <button class="btn" id="active-Btn">All</button>
+              <button class="btn btn-color" >Done</button>
+              <button class="btn btn-color">In Progress</button>
+              <button class="btn btn-color">Todo</button>
+            </div>
+
+            <div class="img-icon">
+             
+              <button class="filter-button">  <img src="https://cdn0.iconfinder.com/data/icons/mobile-basic-vol-1/32/Filter-64.png" role="button" id="filter-img">more filter <span> 
+                <i class="fa fa-angle-down"></i></span></button>
+
+             </div>
+            <div class="filter-modal close" >
+              <div class="filter-modal-content">
+                <div class="filter-header">
+                  <h3>Filter Form</h3>
+                  <button id="closeFilterButton" class="close-button">&#x2715;</button>
+                </div>
+                 <p>Filter by status</p>
+                 <button class="btn" id="active-button">All</button>
+            <button class="btn btn-color" id="butn">Done</button>
+            <button class="btn btn-color" id="butn">In Progress</button>
+            <button class="btn btn-color" id="butn">Todo</button>
+            <P>Filter by priority</P>
+            <button class="btn btn-color" id="butn">High</button>
+            <button class="btn btn-color" id="butn">Low</button>
+            <button class="btn btn-color" id="butn">Medium</button>
+           <div>
+            <button class="clear-filter">Clear Filter</button>
+           </div> 
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- error message -->
+        <section class="error-message" id="errorMessage">
+         <div class="error-search-img">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          
+         </div>
+
+         <h3>No Result For <span id="inputedErrorText"></span></h3>
+         <p>Check the Spelling or try a new Search</p>
+        </section>
+
+
+        <!-- table content -->
+        <table class="todo-table" id="todoTable">
+          <thead class="table-head">
+            <th><input type="checkbox"></th>
+            <th>S/N</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Priority</th>
+          </thead>
+
+          <tbody id="myTable"></tbody> 
+        </table>
+      </main>
+    </div>
+    <section>
+      <ul id="listContainer"></ul>
+      <section class="pagination">
+      <p>
+      <span >Displaying</span>
+      <b><span id="currentPage">1</span>-<span id="totalPage">5</span></b>
+      <span id="totalItems">Of 50</span>
+      </p>
+      <div class="flex">
+          <button id="prev">Previous</button>
+          <select class="select-Page" id="selectPageDropDown"></select>
+          <button id="next">Next</button>
+      </div>
+      </section>
+
+    <script
+      src="https://kit.fontawesome.com/a1a5e92d16.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./task-app-with-filter.js"></script>
+    
+
+  </body>
+</html>
